@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Cars Managment</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <!-- Brand -->
+      <a class="navbar-brand" href="#" routerLink="/cars">Cars Managment</a>
+      <!-- Links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/cars" >Home</a>
+          </li>
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            routerLink="#"
+            id="navbardrop"
+            data-toggle="dropdown"
+          >
+           CARS
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" routerLink="/cars">List Cars</a>
+          <a *ngIf="authService.isAdmin()" class="dropdown-item" routerLink="/add-car">Add Car</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            routerLink="#"
+            id="navbardrop"
+            data-toggle="dropdown"
+          >
+          Groups
+          </a>
+
+          <div class="dropdown-menu">
+            <a class="dropdown-item" routerLink="/groupes">List Groups</a>
+          <a *ngIf="authService.isAdmin()" class="dropdown-item" routerLink="/add-grp">Add Group</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/rechercheParGroupe" >Search By Group</a>
+          </li>
+
+      </ul>
+
+        <ul class="navbar-nav ml-auto" >
+
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            routerLink="#"
+            id="navbardrop"
+            data-toggle="dropdown"
+          >
+          {{authService.loggedUser}}
+          </a>
+          <div class="dropdown-menu">
+           <a *ngIf="!authService.isloggedIn" class="dropdown-item" routerLink = "login">login</a>
+           <a *ngIf="authService.isloggedIn" class="dropdown-item" (click) = "onLogout()">logout</a>
+            <a class="dropdown-item" routerLink="/cars">Profile</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </body>
+</html>
+<router-outlet></router-outlet>
+<!--<app-cars></app-cars>-->

@@ -1,0 +1,86 @@
+<div class="container">
+  <div>
+    <h2>Add Car :</h2>
+  </div>
+  <form class="from">
+    <table align="center" width="100%">
+      <tr hidden>
+
+        <th> <label>ID Car</label></th>
+        <td><input
+            type="text"
+            [(ngModel)]="newCar.idCar"
+            name="idCar"
+            class="form-control"
+            /></td>
+
+      </tr>
+      <tr>
+        <th><label>Car Model</label></th>
+        <td><input
+            type="text"
+            [(ngModel)]="newCar.nomCar" #name="ngModel"
+            name="nomCar"
+            class="form-control" required minlength="4"
+            />
+       </td>
+      </tr>
+
+      <tr>
+        <th><label>Group</label></th>
+        <td>
+          <select
+            class="form-control form-control-lg"
+            id="idGrp"
+            name="idGrp"
+            [(ngModel)]="newIdGrp" required #select="ngModel">
+            <option *ngFor="let grp of groupes" [value]="grp.idGrp">
+              {{ grp.nomGrp }}
+            </option>
+          </select>
+         </td>
+      </tr>
+      <tr>
+      <th><label>Price</label></th>
+      <td><input
+          type="text"
+          [(ngModel)]="newCar.prixCar" #name="ngModel"
+          name="prixCar"
+          class="form-control" required minlength="4" type="number"
+          />
+   </td>
+    </tr>
+    <tr>
+      <th><label>ImageUrl</label></th>
+      <td><input
+          type="text"
+          [(ngModel)]="newCar.imgCar" #name="ngModel"
+          name="imgCar"
+          class="form-control" required
+          />
+     </td>
+    </tr>
+      <tr> <th><label>Creation Date</label></th>
+        <td><input
+            type="date"
+            [(ngModel)]="newCar.dateAjout"
+            name="dateAjout"
+            class="form-control" required #date="ngModel"
+            />
+        </td>
+      </tr>
+
+
+      <tr> <th style="text-align: center;" colspan="2"><button type="submit"
+            (click)="addCar()" class="btn btn-success">
+            Add
+          </button>
+          <a routerLink="/cars"><button type="button" class="btn btn-danger">
+              Cancel
+            </button></a></th></tr>
+
+      <h3>{{ message }}</h3>
+
+    </table>
+  </form>
+</div>

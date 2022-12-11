@@ -1,0 +1,29 @@
+<div class="container">
+  <div>
+  <h2>Edit Group :</h2>
+  </div>
+  <form >
+  <div class="form-group">
+  <label >ID Groupe </label>
+  <input readonly type="text" [(ngModel)]="currentGrp.idGrp"
+  name="idGrp" class="form-control">
+  </div>
+  <div class="form-group" >
+  <label >Group's Name</label>
+  <input type="text"[(ngModel)]= "currentGrp.nomGrp"
+  name="nomGrp" class="form-control" required minlength="4" #name="ngModel">
+
+  </div>
+  <div class="form-group">
+  <label >Group Description</label>
+  <textarea [(ngModel)]= "currentGrp.descriptionGrp"
+  name="descriptionGrp" class="form-control" required #desc="ngModel"></textarea>
+
+  </div>
+
+    <div class="form-group" align="center">
+    <button type="submit" (click)="updateGrp()" class="btn btn-success">Edit</button>
+    <a routerLink="/groupes"><button type="button" class="btn btn-danger">Cancel</button></a>
+    </div>
+    </form>
+    </div>

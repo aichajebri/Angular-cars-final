@@ -1,0 +1,34 @@
+<br>
+<div class="container">
+  <h2>List Of Cars :</h2>
+<div class="card shadow mb-4">
+  <form class="form-inline">
+    <div class="form-group mx-sm-4 mb-1 mt-1 ">
+    <label><b>Search by Car's name : </b>&nbsp;</label>
+    <input type="search" class="form-control" #searchTerm (keyup)="onKeyUp(searchTerm.value)">
+   <!-- <button type="submit" (click)="rechercherCars()" class="btn btn-primary mb-2 ml-2">Rechercher</button>
+    <a href="/cars"><button type="button" class="btn btn-warning mb-2 ml-2">Annuler</button></a>-->
+    </div>
+    </form>
+<div class="card-body">
+<table class="table table-striped">
+  <tr><th style="text-align:center;" colspan="6">Cars</th></tr>
+<tr> <th>Id</th><th>Name</th><th>Group</th><th>Price</th> <th>Image</th><th>Creation Date</th> <th *ngIf="authService.isAdmin()" colspan="2">Actions</th></tr>
+<tbody *ngFor="let car of cars">
+<tr>
+<td>{{car.idCar}}</td>
+<td>{{car.nomCar}}</td>
+<td>{{car.groupe.nomGrp}}</td>
+<td>{{car.prixCar}}</td>
+<td><img src={{car.imgCar}} alt="carImg"></td>
+<td>{{car.dateAjout | date:'dd/MM/yyyy'}}</td>
+<td><a *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerCars(car)">Delete</a></td>
+<td><a *ngIf="authService.isAdmin()" class="btn btn-success" [routerLink]="['/updateCar',car.idCar]">Edit</a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+
+</div>
+</div>
+</div>
