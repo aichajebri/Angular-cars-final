@@ -17,8 +17,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { LoginComponent } from './login/login.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
-import {HTTP_INTERCEPTORS } from '@angular/common/http';
-//import { TokenInterceptor } from './services/token.interceptor';
 
 
 @NgModule({
@@ -44,10 +42,7 @@ import {HTTP_INTERCEPTORS } from '@angular/common/http';
     Ng2SearchPipeModule,
     NgxPaginationModule
   ],
-  providers: [/*{ provide : HTTP_INTERCEPTORS,
-    useClass : TokenInterceptor,
-    multi : true}
-  */],
+ 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
